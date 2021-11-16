@@ -50,10 +50,8 @@ while read linea; do
 	MEDIA_SERVER=$(echo "$linea" | awk '{print $1}')
 	ESTADO=$(echo "$linea" | awk '{print $2}')
 	if [[ "$ESTADO" == *"ACTIVE"* ]]; then
-	#	echo "OK"
 		echo "0 NetBackup_MediaServer_$MEDIA_SERVER - OK. El estado de este MediaServer es: $ESTADO - Fecha de chequeo: `date`"
 	else
-	#	echo "Un maldito error"
 		echo "2 NetBackup_MediaServer_$MEDIA_SERVER - ERROR. El estado de este MediaServer es: $ESTADO (Distinto de *ACTIVE*) - Fecha de chequeo: `date`. $ESCALAMIENTO"
 	fi
 done
